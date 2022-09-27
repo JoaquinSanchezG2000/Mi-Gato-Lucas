@@ -1,44 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
+import { Context } from "../Context/menuContext";
 
 const Usermenu = () => {
-    function hiddenUserMenu() {
-        const menu = document.getElementById("user-menu")
-        menu.classList.toggle("hidden")
-  }
+  const {userMenuIsOpen, handleSwitchMenuOpen, handleMenuClose} = useContext(Context);
 
   return (
-    <div onClick={hiddenUserMenu}>
+    <div>
       <img
-        className=" ease-in duration-300 hover:scale-125 rounded-[50%] cursor-pointer  h-[2.5rem] bg-white "
+        onClick={handleSwitchMenuOpen}
+        className=" h-[2.5rem] cursor-pointer rounded-[50%] bg-white duration-300  ease-in hover:scale-125 "
         src="/Images/user.png"
         alt=""
       />
 
-      <div
-        id="user-menu"
-        className="hidden z-20 fixed bg-white h-[10rem] w-[12rem] opacity-80 right-1 top-[5.5rem] text-green-600 p-4   "
-      >
-        <Link href="">
-          <p className="mt-3 hover:border-b-[2px] w-[7rem] cursor-pointer border-green-600">
-            Mis Pedidos
-          </p>
-        </Link>
-        <Link href="">
-          <p className="mt-3 hover:border-b-[2px] w-[7rem] cursor-pointer border-green-600">
-            Mis Preguntas
-          </p>
-        </Link>
+      {userMenuIsOpen && (
+        <div
+          id="user-menu"
+          className={`absolute   right-1 top-[5.5rem]  z-20  h-[10rem] w-[12rem] bg-white p-4 text-green-600 opacity-80 ${
+            userMenuIsOpen ? "" : "translate-x-[200px]"
+          }`}
+        >
+          <Link href="">
+            <p className="mt-3 w-[7rem] cursor-pointer border-green-600 hover:border-b-[2px]">
+              Mis Pedidos
+            </p>
+          </Link>
+          <Link href="">
+            <p className="mt-3 w-[7rem] cursor-pointer border-green-600 hover:border-b-[2px]">
+              Mis Preguntas
+            </p>
+          </Link>
 
-        <p className="mt-3 hover:border-b-[2px] w-[7rem] cursor-pointer border-green-600">
-          Cerrar session
-        </p>
-      </div>
+          <p className="mt-3 w-[7rem] cursor-pointer border-green-600 hover:border-b-[2px]">
+            Cerrar session
+          </p>
+        </div>
+      )}
     </div>
   );
 };
 
 export default Usermenu;
-export {
-
-}

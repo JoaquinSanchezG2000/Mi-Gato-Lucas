@@ -36,23 +36,27 @@ const index = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center border-red-500">
-        <h3 className="py-4 text-2xl">preguntas</h3>
-        <div className="w-10/12">
+      <div className="flex flex-col items-center justify-center  ">
+        <div className="flex items-center justify-start bg-image-preguntas h-[20rem] w-full bg-cover bg-center bg-no-repeat text-center text-[40px] text-green-600">
+          <h3 className=" ml-10 ">Preguntas Frecuentes</h3>
+        </div>
+        <div className="w-full  text-center  ">
           {preguntas.map((pregunta, index) => (
-            <div key={index} className="border-2 border-red-500">
+            <div
+              key={index}
+              className="my-4 flex h-full flex-col  items-center border-2 border-green-300 text-green-600"
+            >
               <div
-                className="z-20 flex cursor-pointer items-center justify-between border-2 hover:bg-red-100"
+                className=" z-20 h-full w-full cursor-pointer  p-10 delay-300 ease-in-out hover:bg-green-600 hover:text-white "
                 onClick={() => {
                   handleDropdown(index);
                 }}
               >
-                <h3 className=" py-2">{pregunta.pregunta}</h3>
-                <span className="text-4xl">+</span>
+                <h3 className="w-full text-2xl transition   ">{pregunta.pregunta}</h3>
               </div>
               <p
-                className={`z-[-10] transition-all duration-300  ${
-                  dropdown.index == index ? "my-4" : "h-0 opacity-0"
+                className={`z-[-10] w-[80%] transition-all duration-300 ${
+                  dropdown.index == index ? "" : "h-0 translate-x-[100rem]  "
                 }`}
               >
                 {pregunta.respuesta}

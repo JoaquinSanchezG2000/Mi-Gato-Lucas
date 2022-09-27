@@ -7,3 +7,11 @@ html,
 #__next {
   height: 100%;
 }
+
+
+.bg-image-preguntas{
+  background-image: url(/Images/vela1.jpg);
+}
+.bg-image{
+  background-image: url(/Images/vela4.jpg);
+}

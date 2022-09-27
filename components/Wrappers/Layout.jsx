@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import { Context } from "../../Context/menuContext";
+
 
 const Layout = ({ children }) => {
+  const { handleCartClose, handleMenuClose } = useContext(Context);
+  
+
+
   return (
-    <div>
+    <div onClick={() => {
+      handleCartClose()
+      handleMenuClose();
+      
+    } 
+    }>
       <Navbar />
-      <div className="border-red-500 border-2">{children}</div>
+      <div>{children}</div>
       <Footer />
     </div>
   );

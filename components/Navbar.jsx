@@ -4,9 +4,10 @@ import Cart from "./Cart";
 import Usermenu from "./Usermenu";
 import { useRouter } from "next/router";
 
-const Navbar = props => {
+const Navbar = () => {
   const router = useRouter();
-  console.log(router);
+
+
 
   return (
     <div className="flex h-[7rem] w-full items-center justify-around bg-green-600 text-white ">
@@ -57,9 +58,8 @@ const Navbar = props => {
       </div>
       <div>
         <div className=" hidden items-center text-white lg:flex ">
-          {/* <Cart /> */}
+          <Cart  />
 
-          <Usermenu />
           <p className="mx-3 hidden  hover:border-b-[1.5px] hover:border-white hover:pb-2  ">
             log in
           </p>
@@ -72,7 +72,7 @@ const Navbar = props => {
 
         <div className="lg:hidden ">
           <div className=" ">
-            <Cart />
+            {/* <Cart /> */}
           </div>
           <img className="h-[4rem]" src="/Images/menu.png" alt="" />
           <div id="menu-movil" className=" hidden">

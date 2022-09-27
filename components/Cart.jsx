@@ -1,32 +1,63 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../Context/menuContext";
 
 const Cart = () => {
+  const { cartIsOpen, handleSwitchCartOpen } = useContext(Context);
+  const [quantityCartItems, setQuantityCartItems] = useState(1);
+
+  const sumQuantityCartItems = () => {
+    if (quantityCartItems == 10) return;
+    setQuantityCartItems(PreviousState => PreviousState + 1);
+  };
+  const restQuantityCartItems = () => {
+    if (quantityCartItems == 0) return;
+    setQuantityCartItems(PreviousState => PreviousState - 1);
+  };
+  console.log(quantityCartItems);
+
   return (
     <div className="lg:mr-8">
       <img
-        onClick={() => console.log("nisman")}
-        className="ease-in duration-300 h-[2.2rem] fixed  lg:static  ml-8 lg:ml-0  lg:bg-transparent bg-green-600 rounded bg-opacity-50 lg:mt-0 mt-[5rem] hover:scale-125 cursor-pointer "
+        onClick={e => {
+          handleSwitchCartOpen();
+          console.log(e);
+        }}
+        className="fixed ml-8 mt-[5rem] h-[2.2rem]  cursor-pointer  rounded bg-green-600  bg-opacity-50 duration-300 ease-in hover:scale-125 lg:static lg:ml-0 lg:mt-0 lg:bg-transparent "
         src="/Images/cart.png"
         alt=""
       />
-
-      <div
-        id="cart"
-        className="  absolute right-1 w-full lg:w-[28rem] h-[25rem] bg-white opacity-90 z-40    "
-      >
-        <h2 className="text-center text-green-600 text-[20px] p-1">Cart</h2>
-        <div className="border border-black w-full h-[5rem] flex items-center p-3 bg-gray-300 justify-between ">
-          <img className="h-[3rem] " src="/Images/vela1.jpg" alt="" />
-          <p className=" w-[5rem] ">vela de nisman</p>
-          <p className="">price</p>
-          <div className="flex items-center bg-white p-1 rounded-lg">
-            <img className="h-[4px] " src="/Images/icon-minus.svg" alt="" />
-            <p className="mx-2 text-green-600">2</p>
-            <img className="h-[10px] " src="/Images/icon-plus.svg" alt="" />
+      {cartIsOpen && (
+        <div
+          onClick={e => {
+            e.stopPropagation();
+          }}
+          id="cart"
+          className="  absolute right-1 z-40 h-[25rem] w-full bg-white opacity-90 lg:w-[28rem]    "
+        >
+          <h2 className="p-1 text-center text-[20px] text-green-600">Cart</h2>
+          <div className="flex h-[5rem] w-full items-center justify-between border border-black bg-gray-300 p-3 ">
+            <img className="h-[3rem] " src="/Images/vela1.jpg" alt="" />
+            <p className=" w-[5rem] ">vela de nisman</p>
+            <p className="">price</p>
+            <div className="flex items-center rounded-lg bg-white p-1">
+              <img
+                onClick={restQuantityCartItems}
+                className="h-[4px] cursor-pointer hover:scale-125 "
+                src="/Images/icon-minus.svg"
+                alt=""
+              />
+              <p className="mx-2 text-green-600">{quantityCartItems} </p>
+              <img
+                onClick={sumQuantityCartItems}
+                className="h-[10px] cursor-pointer hover:scale-125 "
+                src="/Images/icon-plus.svg"
+                alt=""
+              />
+            </div>
+            <img src="/Images/icon-delete.svg" alt="" />
           </div>
-          <img src="/Images/icon-delete.svg" alt="" />
         </div>
-      </div>
+      )}
     </div>
   );
 };

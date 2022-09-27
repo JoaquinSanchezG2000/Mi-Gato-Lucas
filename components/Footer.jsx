@@ -21,17 +21,17 @@ const Footer = () => {
               Inicio
             </li>
           </Link>
-          <Link href="/Tienda">
+          <Link href="/tienda">
             <li className="duration-300 hover:scale-125 p-1  my-1 text-white hover:text-black text-[14px]  cursor-pointer">
               Catalogo
             </li>
           </Link>
-          <Link href="/PreguntasFrecuentes">
+          <Link href="/preguntas">
             <li className="duration-300 hover:scale-125 p-1  my-1 text-white hover:text-black text-[14px]  cursor-pointer">
               Preguntas Frecuentes
             </li>
           </Link>
-          <Link href="/Contacto">
+          <Link href="/contacto">
             <li className=" duration-300 hover:scale-125 p-1  my-1 text-white hover:text-black text-[14px]  cursor-pointer ">
               Contacto
             </li>
