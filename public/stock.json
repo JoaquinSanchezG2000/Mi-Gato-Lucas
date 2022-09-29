@@ -1,0 +1,34 @@
+  
+  [{
+    "id":1,
+    "name": "vela 1",
+    "description": "XDXDXDXDXDXDXDXXDXDXDXDXDXDX",
+    "img": "/Images/vela1.jpg",
+    "price": "999"
+  },
+    {
+      "id":2,
+    "name": "vela 2",
+    "description": "lololololololololol",
+    "img": "/Images/vela2.jpg",
+    "price": "111"
+  },
+
+
+  {
+    "id":3,
+    "name": "vela 3",
+    "description": "anismanlo mataron lo nisman mataron",
+    "img": "/Images/vela3.jpg",
+    "price": "0"
+  },
+  {
+    "id":4,
+    "name": "vela 4",
+    "description": "ricardo ricardo ricardo",
+    "img": "/Images/vela4.jpg",
+    "price": "0010001010"
+  }
+
+
+]

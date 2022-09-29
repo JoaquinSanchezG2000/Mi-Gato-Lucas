@@ -13,16 +13,14 @@ const Cart = () => {
     if (quantityCartItems == 0) return;
     setQuantityCartItems(PreviousState => PreviousState - 1);
   };
-  console.log(quantityCartItems);
 
   return (
     <div className="lg:mr-8">
       <img
         onClick={e => {
           handleSwitchCartOpen();
-          console.log(e);
         }}
-        className="fixed ml-8 mt-[5rem] h-[2.2rem]  cursor-pointer  rounded bg-green-600  bg-opacity-50 duration-300 ease-in hover:scale-125 lg:static lg:ml-0 lg:mt-0 lg:bg-transparent "
+        className="fixed ml-8 mt-[7rem] h-[2.2rem]  cursor-pointer  rounded bg-green-600  bg-opacity-50 duration-300 ease-in hover:scale-125 lg:static lg:ml-0 lg:mt-0 lg:bg-transparent z-30 "
         src="/Images/cart.png"
         alt=""
       />
@@ -32,8 +30,17 @@ const Cart = () => {
             e.stopPropagation();
           }}
           id="cart"
-          className="  absolute right-1 z-40 h-[25rem] w-full bg-white opacity-90 lg:w-[28rem]    "
+          className="lg:right-5  w-full absolute right-0 z-40 h-[25rem] w-full bg-white opacity-90 lg:w-[28rem]
+              "
         >
+          <div className="flex w-full justify-end">
+            <img
+              onClick={handleSwitchCartOpen}
+              className="m-2 h-5 "
+              src="/Images/icon-close.svg"
+              alt=""
+            />
+          </div>
           <h2 className="p-1 text-center text-[20px] text-green-600">Cart</h2>
           <div className="flex h-[5rem] w-full items-center justify-between border border-black bg-gray-300 p-3 ">
             <img className="h-[3rem] " src="/Images/vela1.jpg" alt="" />
